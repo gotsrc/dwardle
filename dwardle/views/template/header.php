@@ -11,7 +11,7 @@
 
 	<body>
 		<div id="inner_wrap">
-			<img src="<?=base_url();?>static/images/logo.png"/>
+			<a href="<?=base_url();?>" alt="Home!"><img src="<?=base_url();?>static/images/logo.png"/></a>
 			
 				<div id="nav" class="n_pad">
 					<div class="n_left"><span class="name">Welcome to Dwardle!</span></div>

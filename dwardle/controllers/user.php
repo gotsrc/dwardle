@@ -58,7 +58,7 @@ function login()
 
 			$this->session->set_userdata($data);
 			
-			$this->load->view('pages/index', $vars);
+			$this->load->view('template/main', $data);
 		}
 	}	
 	

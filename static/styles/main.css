@@ -7,7 +7,7 @@ body {
 }
 
 #inner_wrap { width: 850px; margin: 20px auto;  }
-
+#inner_wrap img { border: 0; }
 #nav { 
 	width: 820px; 
 	background-color: #ffffff; 
