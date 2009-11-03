@@ -1,0 +1,47 @@
+################################################################################################################
+################################################ Dwardle Development ###########################################
+#################################################### README File ###############################################
+################################################################################################################
+
+
+What is Dwardle?
+================================================================================================================
+================================================================================================================
+
+Dwardle is a new Social Network / Micro blogging service which is currently in development powered by the 
+CodeIgniter Framework by EllisLabs. The Dwardle application is coded by a 21 year old web developer named Paul 
+Chater whos website(s) can be found at:
+
+http://www.PaulChater.co.uk
+http://www.Codr.eu
+http://www.Dwardle.com
+http://www.Dwardle.com/blog
+
+
+When will Dwardle be finished and will it be free?
+================================================================================================================
+================================================================================================================
+
+I currently have no set date on when Dwardle will be finished, although i'm planning on pushing out a Private 
+Alpha around Mid to Late November 2009.
+
+Yes, of course Dwardle will be free. The only thing that we would be charging for may be donations, but that will 
+not be a required commitment. Small donations will be going into a personal fund which pays for the server to run 
+Dwardle.
+
+
+
+What is the Dwardle Policy?
+================================================================================================================
+================================================================================================================
+
+The Dwardle Code is not allowed to be used on LIVE servers although it can be downloaded and run on a local host 
+to learn from. Dwardle isn't currently an Open Source Application, although admittedly that is a bit hypocritical 
+considering that it is on a Public Git Repository (this will be changed Friday 31st July 2009.)
+
+If you are planning to run Dwardle on a local host to learn from then you must contact Paul Chater immediately 
+via either msn messenger, email or by a direct message on twitter. Contact details are below.
+
+MSN Address: me[at]paulchater.co.uk
+E-Mail Address: webmaster[at]paulchater.co.uk
+Twitter: @PaulChater
