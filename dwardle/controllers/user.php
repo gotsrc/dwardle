@@ -18,7 +18,6 @@ class User extends Controller
 		{
 			$user_data = array(
 				'username'	=>	$this->input->post('username'),
-				'email'		=>	$this->input->post('email'),
 				'is_logged_in'	=>	true
 			);
 			
@@ -32,39 +31,6 @@ class User extends Controller
 		}
 	}	
 
-/*	
-	// Check if the email address exists
-	function email_check($email)
-	{
-		$query = $this->db->query("SELECT * FROM `dwl_users` WHERE `email` = '$email'");
-		
-		if($query->num_rows() === 1)
-		{
-			return TRUE;
-		}
-		else
-		{
-			return FALSE;
-		}
-	}
-	
-	// Check that the password is correct for the email address
-	function password_check($password)
-	{
-		$email = set_value('email'); // assign the value fo the email field to this variable
-		
-		$query = $this->db->query("SELECT * FROM `dwl_users` WHERE `email` = '$email' AND `password` = '$password'");
-		
-		if($query->num_rows() == 1)
-		{
-			return FALSE;
-		}
-		else
-		{
-			return TRUE;
-		}
-	}
-*/
 	function register()
 	{
 		$data['content']	=	'pages/register';
