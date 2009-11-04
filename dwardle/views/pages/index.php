@@ -1,4 +1,4 @@
-	<h1>Welcome to Dwardle <?php $this->input->post('email'); ?></h1>
+	<h1>Welcome to Dwardle</h1>
 
 	<h2>What is <?=$mainName;?></h2>
 		<?=$mainName;?> is a brand new Social Networking Website developed by <abbr title="Paul Chater Web Development">PCWD</abbr>. 

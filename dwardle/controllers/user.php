@@ -13,7 +13,6 @@ class User extends Controller
 		$data['mainName']	=	"Dwardle";
 		$data['page']		= 	"Welcome";
 		$data['content']	=	'pages/index';
-		
 		if ($this->session->userdata('logged_in') == TRUE)
 		{
 			$this->load->view('template/main', $data);
@@ -32,7 +31,6 @@ function login()
 		$data['mainName']	=	"Dwardle";
 		$data['page']		= 	"Login";
 		$data['content']	=	'pages/login';
-		
 		/*
 		 * Set Login form validation rules so that no special characters can be inserted
 		 * and also filter out any Cross Site Scripting stuff.
@@ -50,7 +48,7 @@ function login()
 		else
 		{
 			
-			$data = array(
+			$data[] = array(
 						'email'		=>	$this->input->post('email'),
 						'password'	=>	$this->input->post('password'),
 						'logged_in'	=>	TRUE
