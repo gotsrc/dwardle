@@ -23,7 +23,7 @@ class User extends Controller
 			);
 			
 			$this->session->set_userdata($user_data);
-			redirect('member/home');
+			redirect('site/home');
 		}
 			else
 		{
@@ -65,15 +65,14 @@ class User extends Controller
 		}
 	}
 */
-	
-
 	function register()
-	{   
+	{
 		$data['content']	=	'pages/register';
-		
-		/* Generate a random string of integers to use as a salt for the hashing method. */
-		$salt = rand(1000000,9999999);
-        
+		$this->load->view('user/index', $data);
+	}	
+
+	function register_user()
+	{   
         /* 
          * Set registrtion validation rules. Username must be a minimum of 4 characters and maximum of 25 characters,
          * it must be alpha numerical but allow hyphens and underscores. Email must be a valid email address
@@ -84,54 +83,38 @@ class User extends Controller
 										   xss_clean|htmlspecialchars|alpha_dash');
 		$this->form_validation->set_rules('email','Email','trim|required|valid_email');
 		$this->form_validation->set_rules('password','Password','trim|required|min_length[4]|max_length[34]|htmlspecialchars');
-		$this->form_validation->set_rules('pconf','Password Confirmation','trim|matches[password]|required');
+		$this->form_validation->set_rules('password2','Password Confirmation','trim|matches[password]|required');
 		
 		$this->form_validation->set_rules('first_name','First Name','trim|htmlspecialchars|alpha');
 		$this->form_validation->set_rules('last_name','Last Name','trim|htmlspecialchars|alpha');
-		
-		/* 
-		 * Tell CodeIgniter to use the error class within a small tag for each error message the error will then appear
-		 * to the right of the form field.
-		 */
-		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-		
+
 		/*
 		 * If the validation has failed then relocate the user to the registration page where they just were
 		 * showing the errors so the user can correct them. Otherwise send them to the successful registration page.
 		 */
 		if ($this->form_validation->run() == FALSE) 
 		{
-			$this->load->view('user/register', $data);
-		} else {
-			$this->load->view('user/login', $data);
-        
-        /* Define an array of data so that the data can be passed to the Users Model. */
-        $data = array(
-                'username'  => $this->input->post('username'), // Inputted Username.
-                'email'     => $this->input->post('email'), // Inputted E-mail address.
-                'password'  => $salt . dohash($this->input->post('password')), // Password salted then hashed.
-                'salt'      => $salt, // The random number which was generated.
-                'first_name'    =>  $this->input->post('first_name'), // Users first name [not required]
-                'last_name'     =>  $this->input->post('last_name'), // Users last name [not required]
-                'registered'      =>  date('y-m-d h:i:s') // Date the registration took place.
-                );
-        
-        /* 
-         * Parse the data array through to the users model so that the users model can create the user within the 
-         * database 
-         */
-        $this->M_Users->create($data);
+			$this->register();
+		} 
+			else 
+		{
+			$this->load->model('user_model','User');
+			
+			if($send = $this->User->create_user())
+			{
+				$data['content']	=	'pages/member_created';
+				$this->load->view('user/index', $data);
+			}
+				else
+			{
+				$this->load-view('pages/register');
+			}
 		}
 	}
 	
 	function forgotpw()
 	{
-		$data['name']		= 	"Dwardle Dev";
-		$data['mainName']	=	"Dwardle";
-		$data['page']		= 	"Reset your password";
-		$data['content']	=	'pages/forgotpass';
-		
-		$this->load->view('template/main', $data);
+
 	}
 	
 }	

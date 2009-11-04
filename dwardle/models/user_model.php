@@ -27,9 +27,6 @@ class user_model extends Model
 		);
 		
 		$send = $this->db->insert('users', $user_data);
-		$this->load->library('firephp');
-		
-		$this->firephp->log($send);
 		return $send;
 	}
 }
