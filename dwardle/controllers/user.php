@@ -5,6 +5,7 @@ class User extends Controller
 	function User()
 	{
 		parent::Controller();
+		$this->load->library('firephp');
 	}
 
 	function index()
@@ -58,6 +59,7 @@ function login()
 			
 			$this->load->view('template/main', $data);
 		}
+		$this->firephp->log($data);
 	}	
 	
 	// Check if the email address exists
