@@ -4,8 +4,8 @@ class user_model extends Model
 {
 	function verify()
 	{
-		$this->db->where('username', $this->input->post('username')) . ' OR ' . 'email', $this->input->post('email'));
-		$this->db->where('password', substr(sha1($this->input-post('password')), 0, -7));
+		$this->db->where('username', $this->input->post('username'));
+		$this->db->where('password', substr(sha1($this->input->post('password')), 0, -7));
 		$get = $this->db->get('users');
 		
 		if($get->num_rows == 1)

@@ -2,66 +2,37 @@
 
 class User extends Controller
 {
-	function User()
-	{
-		parent::Controller();
-		$this->load->library('firephp');
-	}
-
 	function index()
 	{
-		$data['name']		= 	"Dwardle Dev";
-		$data['mainName']	=	"Dwardle";
-		$data['page']		= 	"Welcome";
-		$data['content']	=	'pages/index';
-		if ($this->session->userdata('logged_in') == TRUE)
-		{
-			$this->load->view('template/main', $data);
-		} else {	
-			$this->login();
-		}
+		$this->load->library('firephp');
+		$data['content']	=	'pages/login';
+		$this->load->view('user/login', $data);
 	}
 
-function login()
+	function validate()
 	{
-		/*
-		 * Set some global variables I'm sure this can be used in the controller instantiation
-		 * process.
-		 */
-		$data['name']		= 	"Dwardle Dev";
-		$data['mainName']	=	"Dwardle";
-		$data['page']		= 	"Login";
-		$data['content']	=	'pages/login';
-		/*
-		 * Set Login form validation rules so that no special characters can be inserted
-		 * and also filter out any Cross Site Scripting stuff.
-		 */
-		$this->form_validation->set_rules('email','email','trim|required|valid_email|htmlspecialchars|xss_clean|callback_email_check');
-		$this->form_validation->set_rules('password','Password','trim|required|htmlspecialchars|xss_clean|callback_password_check');
-		
-		/* If the form doesn't pass validation then return the user to the login page again
-		 * else log them in and send them to the index page.
-		 */
-		if($this->form_validation->run() == FALSE) 
+		$this->load->model('user_model', 'User');
+		$send = $this->User->verify();
+					$this->load->library('firephp');
+		if($send)
 		{
-			$this->load->view('template/login/main', $data);
+			$user_data = array(
+				'username'	=>	$this->input->post('username'),
+				'email'		=>	$this->input->post('email'),
+				'is_logged_in'	=>	true
+			);
+			
+			$this->session->set_userdata($user_data);
+			redirect('member/home');
 		}
-		else
+			else
 		{
-			
-			$data[] = array(
-						'email'		=>	$this->input->post('email'),
-						'password'	=>	$this->input->post('password'),
-						'logged_in'	=>	TRUE
-						);
-
-			$this->session->set_userdata($data);
-			
-			$this->load->view('template/main', $data);
+			$this->firephp->log($send);
+			$this->index();
 		}
-		$this->firephp->log($data);
 	}	
-	
+
+/*	
 	// Check if the email address exists
 	function email_check($email)
 	{
@@ -93,13 +64,11 @@ function login()
 			return TRUE;
 		}
 	}
+*/
 	
 
 	function register()
 	{   
-  		$data['name']		= 	"Dwardle Dev";
-		$data['mainName']	=	"Dwardle";
-		$data['page']		= 	"Register your account";
 		$data['content']	=	'pages/register';
 		
 		/* Generate a random string of integers to use as a salt for the hashing method. */
@@ -132,9 +101,9 @@ function login()
 		 */
 		if ($this->form_validation->run() == FALSE) 
 		{
-			$this->load->view('template/login/main', $data);
+			$this->load->view('user/register', $data);
 		} else {
-			$this->load->view('template/login/main', $data);
+			$this->load->view('user/login', $data);
         
         /* Define an array of data so that the data can be passed to the Users Model. */
         $data = array(
