@@ -10,13 +10,13 @@ class Site extends Controller
 	
 	function home()
 	{
-		$data['content']	=	"pages/home";
+		$data['content']	=	'pages/home';
 		$this->load->view('site/index', $data);
 	}
 	
 	function about()
 	{	
-		$data['content']	=	"pages/about";
+		$data['content']	=	'pages/about';
 		$this->load->view('site/index', $data);
 	}
 	
