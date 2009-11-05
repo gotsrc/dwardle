@@ -51,8 +51,8 @@ class User extends Controller
 		$this->form_validation->set_rules('password','Password','trim|required|min_length[4]|max_length[34]|htmlspecialchars');
 		$this->form_validation->set_rules('password2','Password Confirmation','trim|matches[password]|required');
 		
-		$this->form_validation->set_rules('first_name','First Name','trim|htmlspecialchars|alpha');
-		$this->form_validation->set_rules('last_name','Last Name','trim|htmlspecialchars|alpha');
+		$this->form_validation->set_rules('first_name','First Name','trim|htmlspecialchars');
+		$this->form_validation->set_rules('last_name','Last Name','trim|htmlspecialchars');
 		
 
 		/*
@@ -116,4 +116,4 @@ class User extends Controller
 		$this->load->view('user/index', $data);
 	}
 	
-}	
+}

@@ -5,6 +5,7 @@
 		
 		<link href="<?=base_url();?>static/styles/main.css" rel="stylesheet" type="text/css" media="screen, projector" />
 		<script src="<?=base_url();?>static/js/jquery.css"></script>
+		<script src="<?=base_url();?>static/js/fade.js"></script>
 	</head>
 	
 	<body>

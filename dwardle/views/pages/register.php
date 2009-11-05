@@ -25,7 +25,7 @@
 	
 	echo '<p>' . form_submit('submit','Register!');
 	
-	echo form_close();
+	echo validation_errors('<p class="error">','</p>');
 
-	echo validation_errors('<p class="error">');
+	echo form_close();
 ?>
