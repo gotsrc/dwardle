@@ -97,10 +97,9 @@ class User extends Controller
 				<p>Your account has successfully been created and you can now ' . anchor(base_url(), 'Login') . ' 
 				using the credentials below.</p>
 		
-<p>				<strong>Username:</strong> ' . $username . '</p>
-<p>				<strong>Password:</strong> ' . $password . '.
-		
-<p>				Regards,<br />
+				<p><strong>Username:</strong> ' . $username . '<br />
+				<strong>Password:</strong> ' . $password . '.</p>		
+				<p>Regards,<br />
 				Dwardle Team</p>');
 				$this->email->send();
 			}
