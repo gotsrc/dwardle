@@ -11,14 +11,14 @@
 	<div id="wrapper">
 		<div id="header">
 			<div class="logo">
-				<img src="<?=base_url();?>static/images/logo.png">
+				<a href="<?=base_url();?>site/home"><img src="<?=base_url();?>static/images/logo.png" border=0></a>
 			</div>
 			
 			<div id="navigation">
 				<ul class="nav">
-					<li><a href="<?=base_url();?>user/index">Login</a></li>
-					<li><a href="<?=base_url();?>user/register">Register</a></li>
-					<li><a href="<?=base_url();?>user/forgotpw">Forgot Password?</a></li>
+					<li><a href="<?=base_url();?>site/home">Home</a></li>
+					<li><a href="<?=base_url();?>site/about">About</a></li>
+					<li><a href="<?=base_url();?>site/logout">Logout</a></li>
 				</ul>
 			</div>
 		</div>

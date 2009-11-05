@@ -112,7 +112,8 @@ class User extends Controller
 	
 	function forgotpw()
 	{
-
+		$data['content']	=	'pages/forgotpw';
+		$this->load->view('user/index', $data);
 	}
 	
 }	

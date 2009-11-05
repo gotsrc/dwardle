@@ -10,7 +10,14 @@ class Site extends Controller
 	
 	function home()
 	{
-		$this->load->view('site/home');
+		$data['content']	=	"pages/home";
+		$this->load->view('site/index', $data);
+	}
+	
+	function about()
+	{	
+		$data['content']	=	"pages/about";
+		$this->load->view('site/index', $data);
 	}
 	
 	function is_logged_in()
@@ -19,8 +26,8 @@ class Site extends Controller
 		
 		if(!isset($is_logged_in) || $is_logged_in != true)
 		{
-			echo 'Sorry, but it seems like you haven\'t registered with Dwardle. Please ';
-			echo anchor(base_url(),'Login') .' or ' . anchor('user/register', 'Register');
+			echo '<div id="error">Sorry, but it seems like you haven\'t registered with Dwardle. Please ';
+			echo anchor(base_url(),'Login') .' or ' . anchor('user/register', 'Register') . '</div>';
 			die();
 		}
 	}
