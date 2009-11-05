@@ -17,6 +17,7 @@ class user_model extends Model
 	function create_user()
 	{
 		// $salt = mt_rand(5, 15);
+		
 		$user_data = array(
 				'username'	=>	$this->input->post('username'),
 				'email'		=>	$this->input->post('email'),
@@ -27,6 +28,7 @@ class user_model extends Model
 		);
 		
 		$send = $this->db->insert('users', $user_data);
+				
 		return $send;
 	}
 }
