@@ -11,7 +11,7 @@
 |	http://example.com/
 |
 */
-$config['base_url']	= "http://pchater.redirectme.net/dwardle/";
+$config['base_url']	= "http://dwardle/";
 
 /*
 |--------------------------------------------------------------------------
