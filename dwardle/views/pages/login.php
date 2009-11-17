@@ -3,22 +3,10 @@
 	echo form_open('user/validate');
 
 	echo '<p>' . form_label('Username: ','username');
-	
-	$data = array(
-		'name'	=>	'username',
-		'id'	=>	'username',
-		'maxlength'	=>	25
-	);
-	echo form_input('username', $data) . '</p>'; 
+	echo form_input('username','','id="username"') . '</p>'; 
 	
 	echo '<p>' . form_label('Password: ','password');
-	
-	$data = array(
-		'name'	=>	'password'
-		'id'	=>	'password',
-		'maxlength'	=>	34
-	);
-	echo form_password('password', $data) . '</p>';
+	echo form_password('password','','id="password"') . '</p>';
 	
 	echo '<p>' . form_submit('submit','Login!');
 	
